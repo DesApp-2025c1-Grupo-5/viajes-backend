@@ -19,7 +19,7 @@ app.use('/api/transportistas', transportistasRoutes);
 app.use('/api/depositos', depositosRoutes);
 app.use('/api/choferes', choferesRoutes);
 
-const PORT = 3000;
+const PORT = 3000; 
 
 sequelize.authenticate()
   .then(() => {
