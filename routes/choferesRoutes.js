@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../db'); //Conexion a PostgreSQL
+const db = require('../config/database'); //Conexion a PostgreSQL
 
 // Obtener choferes
 router.get('/', async (req, res) => {
