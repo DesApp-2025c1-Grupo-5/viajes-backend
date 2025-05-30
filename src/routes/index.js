@@ -5,6 +5,5 @@ const empresasTransportistasRoutes  = require('./empresasTransportistas.route');
 
 routes.use(empresasTransportistasRoutes)
 
-
 module.exports = routes
 

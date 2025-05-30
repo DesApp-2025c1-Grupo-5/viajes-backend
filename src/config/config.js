@@ -1,14 +1,27 @@
-module.exports = {
-  development: {
-    dialect: 'sqlite',
-    storage: './src/database/dev.sqlite'  // Puedes ponerlo donde prefieras
+require('dotenv').config();
+
+const configBD = {
+  "development": {
+    "username": process.env.DB_USERNAME,
+    "password": process.env.DB_PASSWORD,
+    "database": process.env.DB_NAME,
+    "host": process.env.DB_HOST,
+    "dialect": "postgres"
   },
-  test: {
-    dialect: 'sqlite',
-    storage: ':memory:'
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
   },
-  production: {
-    dialect: 'sqlite',
-    storage: './src/database/prod.sqlite'
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
   }
-};
+}
+
+module.exports = configBD

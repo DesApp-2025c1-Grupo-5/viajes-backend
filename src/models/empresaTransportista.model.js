@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     observaciones: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     }
   }, {
     sequelize,
