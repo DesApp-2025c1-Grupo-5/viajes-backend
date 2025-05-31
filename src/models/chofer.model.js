@@ -1,34 +1,34 @@
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class Viaje extends Model {}
+  class Chofer extends Model {}
 
   Viaje.init({
-    origen: {
+    nombre: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    destino: {
+    apellido: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    fecha_salida: {
+    DNI: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    licencia: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    telefono: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    fecha_nacimiento: {
       type: DataTypes.DATE,
       allowNull: false
     },
-    fecha_llegada: {
-      type: DataTypes.DATE,
-      allowNull: false
-    },
-    id_vehiculo: {
-      type: DataTypes.INT,
-      allowNull: false
-    },
-    carga: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    id_chofer: {
+    id_empresa_transportista: {
       type: DataTypes.INT,
       allowNull: false
     },
@@ -42,9 +42,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    modelName: 'EmpresaTransportista',
-    tableName: 'empresa_transportistas'
+    modelName: 'Chofer',
+    tableName: 'choferes'
   });
 
-  return EmpresaTransportista;
+  return Chofer;
 };
