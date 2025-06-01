@@ -3,7 +3,7 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Chofer extends Model {}
 
-  Viaje.init({
+  Chofer.init({
     nombre: {
       type: DataTypes.STRING,
       allowNull: false
@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     id_empresa_transportista: {
-      type: DataTypes.INT,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     estado: {
