@@ -7,16 +7,16 @@ controller.getAllEmpresas = async(_,res)=>{
 }
 
 controller.createEmpresa = async(req,res) =>{
-    const{razonSocial,cuit_rut,email,telefono,pais,provincia_estado,domicilioFiscal,observaciones} = req.body
-    const empresa = await EmpresaTransportista.create({razonSocial,cuit_rut,email,telefono,pais,provincia_estado,domicilioFiscal,observaciones})
+    const{razon_social,cuit_rut,email,telefono,pais,provincia_estado,domicilio_fiscal,observaciones} = req.body
+    const empresa = await EmpresaTransportista.create({razon_social,cuit_rut,email,telefono,pais,provincia_estado,domicilio_fiscal,observaciones})
     res.status(201).json(empresa)
 }
 
 controller.updateEmpresa = async(req,res) =>{
-    const{razonSocial,cuit_rut,email,telefono,pais,provincia_estado,domicilioFiscal,observaciones} = req.body
+    const{razon_social,cuit_rut,email,telefono,pais,provincia_estado,domicilio_fiscal,observaciones} = req.body
     const id = req.params.id
     const empresa = await EmpresaTransportista.findByPk(id)
-    await empresa.update({razonSocial,cuit_rut,email,telefono,pais,provincia_estado,domicilioFiscal,observaciones})
+    await empresa.update({razon_social,cuit_rut,email,telefono,pais,provincia_estado,domicilio_fiscal,observaciones})
     res.status(200).json(empresa)
 }
 

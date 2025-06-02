@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   class EmpresaTransportista extends Model {}
 
   EmpresaTransportista.init({
-    razonSocial: {
+    razon_social: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    domicilioFiscal: {
+    domicilio_fiscal: {
       type: DataTypes.STRING,
       allowNull: false
     },
