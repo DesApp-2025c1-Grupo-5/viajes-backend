@@ -1,9 +1,10 @@
 const {EmpresaTransportista} = require('../models/')
+const {Vehiculo} = require('../models')
 
 const crearValoresInicialesDB = async ()=>{
     try{
 
-        await EmpresaTransportista.destroy({ truncate: true })
+        await EmpresaTransportista.destroy({ truncate: true, cascade: true })
 
         const empresa1 = await EmpresaTransportista.create({
             razon_social: "Transportes Rápidos S.A",
@@ -35,6 +36,17 @@ const crearValoresInicialesDB = async ()=>{
             domicilio_fiscal:"CABA",
             observaciones:"Muerte hunter x hunter"
         });
+        const vehiculo1 = await Vehiculo.create({
+            patente:"1234",
+            modelo:"FH342",
+            marca:"Volvo",
+            año:"2020",
+            capacidad:"32",
+            volumen:"300",
+            id_empresa_transportista:empresa1.id,
+            tipo_de_vehiculo:"Camion",
+            observaciones:"Esto es otra observacion",
+        })
     }catch(error){
         console.log("☠ Error al crear los valores iniciales de la base de datos:", error)
     }
