@@ -8,10 +8,10 @@ const vehiculosRoutes = require('./vehiculos.route');
 const depositosRoutes = require('./depositos.route');
 
 
-router.use('/viajes', viajesRoutes);
-router.use('/empresas', empresasTransportistasRoutes);
-router.use('/choferes', choferesRoutes);
-router.use('/vehiculos', vehiculosRoutes);
-router.use('/depositos', depositosRoutes);
+router.use(viajesRoutes);
+router.use(empresasTransportistasRoutes);
+router.use(choferesRoutes);
+router.use(vehiculosRoutes);
+router.use(depositosRoutes);
 
 module.exports = router;
