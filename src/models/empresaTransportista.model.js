@@ -1,7 +1,14 @@
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class EmpresaTransportista extends Model {}
+  class EmpresaTransportista extends Model {
+
+    static associate(models) {
+      EmpresaTransportista.hasMany(models.Vehiculo, {
+        foreignKey: 'id_empresa_transportista',
+      });
+    }
+  }
 
   EmpresaTransportista.init({
     razon_social: {
@@ -39,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'EmpresaTransportista',
-    tableName: 'empresa_transportistas'
+    tableName: 'empresa_transportista'
   });
 
   return EmpresaTransportista;

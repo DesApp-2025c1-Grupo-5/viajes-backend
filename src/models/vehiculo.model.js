@@ -1,7 +1,14 @@
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class Vehiculo extends Model {}
+  class Vehiculo extends Model {
+    
+    static associate(models) {
+      Vehiculo.belongsTo(models.EmpresaTransportista, {
+        foreignKey: 'id_empresa_transportista',
+      });
+    }
+  }
 
   Vehiculo.init({
     patente: {
