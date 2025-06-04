@@ -166,7 +166,7 @@ const crearValoresInicialesDB = async () => {
       origen: "Deposito Norte",
       destino: "Deposito Sur",
       fecha_salida: "2023-04-15",
-      fecha_llegada: "-",
+      fecha_llegada: null,
       id_vehiculo: vehiculo1.id,
       carga: "cada vez menos...",
       id_chofer: chofer1.id,

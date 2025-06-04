@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     fecha_llegada: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: true
     },
     id_vehiculo: {
       type: DataTypes.INTEGER,
