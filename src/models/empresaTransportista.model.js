@@ -7,6 +7,9 @@ module.exports = (sequelize, DataTypes) => {
       EmpresaTransportista.hasMany(models.Vehiculo, {
         foreignKey: 'id_empresa_transportista',
       });
+      EmpresaTransportista.hasMany(models.Chofer, {
+        foreignKey: 'id_empresa_transportista',
+      });
     }
   }
 
