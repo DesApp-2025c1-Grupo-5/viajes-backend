@@ -36,6 +36,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    contacto:{
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     observaciones: {
       type: DataTypes.STRING,
       allowNull: true

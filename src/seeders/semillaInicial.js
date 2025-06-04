@@ -47,6 +47,7 @@ const crearValoresInicialesDB = async () => {
       volumen: "300",
       id_empresa_transportista: empresa1.id,
       tipo_de_vehiculo: "Camion",
+      nombre_transportista: empresa1.razon_social,
       observaciones: "Esto es otra observacion",
     });
     const vehiculo2 = await Vehiculo.create({
@@ -56,8 +57,9 @@ const crearValoresInicialesDB = async () => {
       año: "2021",
       capacidad: "882",
       volumen: "300",
-      id_empresa_transportista: empresa1.id,
+      id_empresa_transportista: empresa2.id,
       tipo_de_vehiculo: "Camion",
+      nombre_transportista: empresa2.razon_social,
       observaciones: "Esto es otra observacion",
     });
     const vehiculo3 = await Vehiculo.create({
@@ -67,14 +69,15 @@ const crearValoresInicialesDB = async () => {
       año: "2003",
       capacidad: "26",
       volumen: "06",
-      id_empresa_transportista: empresa1.id,
+      id_empresa_transportista: empresa3.id,
       tipo_de_vehiculo: "Camion",
+      nombre_transportista: empresa3.razon_social,
       observaciones: "Esto es otra observacion",
     });
     const chofer1 = await Chofer.create({
       nombre: "Juan",
       apellido: "Pérez",
-      DNI: "3288912",
+      dni: "3288912",
       licencia: "1234",
       telefono: "12345678",
       fecha_nacimiento: "1979-10-30",
@@ -85,7 +88,7 @@ const crearValoresInicialesDB = async () => {
     const chofer2 = await Chofer.create({
       nombre: "Gastón",
       apellido: "Arevalo",
-      DNI: "43921638",
+      dni: "43921638",
       licencia: "5678",
       telefono: "87654321",
       fecha_nacimiento: "1967-01-03",
@@ -96,7 +99,7 @@ const crearValoresInicialesDB = async () => {
     const chofer3 = await Chofer.create({
       nombre: "María",
       apellido: "López",
-      DNI: "35789541",
+      dni: "35789541",
       licencia: "9876",
       telefono: "45612378",
       fecha_nacimiento: "2003-04-30",
@@ -113,6 +116,7 @@ const crearValoresInicialesDB = async () => {
       tipo: "no se",
       horario: "que se yo",
       restriccion_de_acceso: "???",
+      contacto: "1111111111",
       observaciones:
         "perdon al que este viendo esto es tarde y no se que poner en estos campos",
     });
@@ -125,6 +129,7 @@ const crearValoresInicialesDB = async () => {
       tipo: "asdasdad",
       horario: "a las 3 de la tarde que se yo",
       restriccion_de_acceso: "no se que es este campo :(",
+      contacto: "2222222222",
       observaciones: "sigo sin saber que poner",
     });
     const deposito3 = await Deposito.create({
@@ -136,6 +141,7 @@ const crearValoresInicialesDB = async () => {
       tipo: "me rindo asdasd",
       horario: "asadsd",
       restriccion_de_acceso: "asdasd",
+      contacto: "3333333333",
       observaciones: "asdasdsa",
     });
     const viaje1 = await Viaje.create({
@@ -147,7 +153,7 @@ const crearValoresInicialesDB = async () => {
       carga: "andá a saber",
       id_chofer: chofer1.id,
       estado: "preguntenle al chofer",
-    //   id_empresa_transportista: "",
+      //   id_empresa_transportista: "",
       observaciones: "*observa*",
     });
     const viaje2 = await Viaje.create({
@@ -159,7 +165,7 @@ const crearValoresInicialesDB = async () => {
       carga: "me estoy quedando sin ideas ayuda",
       id_chofer: chofer1.id,
       estado: "no se que mas poner",
-    //   id_empresa_transportista: "",
+      //   id_empresa_transportista: "",
       observaciones: "falta poco para terminar",
     });
     const viaje3 = await Viaje.create({
@@ -171,7 +177,7 @@ const crearValoresInicialesDB = async () => {
       carga: "cada vez menos...",
       id_chofer: chofer1.id,
       estado: "ahí nomas...",
-    //   id_empresa_transportista: "",
+      //   id_empresa_transportista: "",
       observaciones: "colorín colorado las observaciones se han terminado.",
     });
   } catch (error) {
