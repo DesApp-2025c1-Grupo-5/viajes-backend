@@ -26,7 +26,7 @@ const crearValoresInicialesDB = async () => {
       pais: "Argentina",
       provincia_estado: "Buenos Aires",
       domicilio_fiscal: "Av. Emilio castro 5409",
-      observaciones: "Aguante solo leveling",
+      observaciones: "",
     });
     const empresa3 = await EmpresaTransportista.create({
       razon_social: "CargoMax",
@@ -36,7 +36,7 @@ const crearValoresInicialesDB = async () => {
       pais: "Argentina",
       provincia_estado: "CABA",
       domicilio_fiscal: "CABA",
-      observaciones: "Muerte hunter x hunter",
+      observaciones: "",
     });
     const vehiculo1 = await Vehiculo.create({
       patente: "1234",
@@ -94,7 +94,7 @@ const crearValoresInicialesDB = async () => {
       fecha_nacimiento: "1967-01-03",
       id_empresa_transportista: empresa1.id,
       estado: "Casado?",
-      observaciones: "observaba el loco",
+      observaciones: "",
     });
     const chofer3 = await Chofer.create({
       nombre: "María",
@@ -105,44 +105,43 @@ const crearValoresInicialesDB = async () => {
       fecha_nacimiento: "2003-04-30",
       id_empresa_transportista: empresa1.id,
       estado: "En algo?",
-      observaciones: "Te acordas que no paraba de observar",
+      observaciones: "",
     });
     const deposito1 = await Deposito.create({
       nombre: "Deposito Central",
       pais: "Argentina",
       provincia: "Buenos Aires",
       direccion: "Av.Principal 123",
-      coordenadas: "26°06'11 te fuiste a la B por **** y *****",
-      tipo: "no se",
+      coordenadas: "26°06'11",
+      tipo: "De Tercero",
       horario: "que se yo",
       restriccion_de_acceso: "???",
       contacto: "1111111111",
-      observaciones:
-        "perdon al que este viendo esto es tarde y no se que poner en estos campos",
+      observaciones:"",
     });
     const deposito2 = await Deposito.create({
       nombre: "Deposito Sur",
       pais: "México",
       provincia: "Jalisco",
       direccion: "Av. Tecnológica 456",
-      coordenadas: "9°12'18 para que gastón no se enoje",
-      tipo: "asdasdad",
-      horario: "a las 3 de la tarde que se yo",
-      restriccion_de_acceso: "no se que es este campo :(",
+      coordenadas: "9°12'18",
+      tipo: "Propio",
+      horario: "12:00",
+      restriccion_de_acceso: "Personal Autorizado",
       contacto: "2222222222",
-      observaciones: "sigo sin saber que poner",
+      observaciones: "",
     });
     const deposito3 = await Deposito.create({
       nombre: "Deposito Norte",
       pais: "Argentina",
       provincia: "Buenos Aires",
       direccion: "Av. de la Industria 1234",
-      coordenadas: "18°12'22 esta locuraaaaa",
-      tipo: "me rindo asdasd",
+      coordenadas: "18°12'22",
+      tipo: "Propio",
       horario: "asadsd",
       restriccion_de_acceso: "asdasd",
       contacto: "3333333333",
-      observaciones: "asdasdsa",
+      observaciones: "",
     });
     const viaje1 = await Viaje.create({
       origen: "Deposito Central",
@@ -150,11 +149,11 @@ const crearValoresInicialesDB = async () => {
       fecha_salida: "2023-04-12",
       fecha_llegada: "2023-04-25",
       id_vehiculo: vehiculo1.id,
-      carga: "andá a saber",
+      carga: "12",
       id_chofer: chofer1.id,
-      estado: "preguntenle al chofer",
+      estado: "Despachado",
       //   id_empresa_transportista: "",
-      observaciones: "*observa*",
+      observaciones: "",
     });
     const viaje2 = await Viaje.create({
       origen: "Deposito Sur",
@@ -162,11 +161,11 @@ const crearValoresInicialesDB = async () => {
       fecha_salida: "2023-04-08",
       fecha_llegada: "2023-04-09",
       id_vehiculo: vehiculo1.id,
-      carga: "me estoy quedando sin ideas ayuda",
+      carga: "soy una carga",
       id_chofer: chofer1.id,
-      estado: "no se que mas poner",
+      estado: "En Viaje",
       //   id_empresa_transportista: "",
-      observaciones: "falta poco para terminar",
+      observaciones: "",
     });
     const viaje3 = await Viaje.create({
       origen: "Deposito Norte",
@@ -174,11 +173,11 @@ const crearValoresInicialesDB = async () => {
       fecha_salida: "2023-04-15",
       fecha_llegada: null,
       id_vehiculo: vehiculo1.id,
-      carga: "cada vez menos...",
+      carga: "66",
       id_chofer: chofer1.id,
-      estado: "ahí nomas...",
+      estado: "Completo",
       //   id_empresa_transportista: "",
-      observaciones: "colorín colorado las observaciones se han terminado.",
+      observaciones: "",
     });
   } catch (error) {
     console.log(
