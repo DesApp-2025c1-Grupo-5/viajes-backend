@@ -1,7 +1,15 @@
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class Viaje extends Model {}
+  class Viaje extends Model {
+
+    static associate(models) {
+      Viaje.belongsTo(models.Vehiculo, {
+        foreignKey: 'id_vehiculo',
+        as: 'vehiculo'
+      });
+    }
+  }
 
   Viaje.init({
     origen: {
