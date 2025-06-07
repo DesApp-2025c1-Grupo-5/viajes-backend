@@ -152,8 +152,12 @@ const crearValoresInicialesDB = async () => {
       carga: "12",
       id_chofer: chofer1.id,
       estado: "Despachado",
-      //   id_empresa_transportista: "",
-      observaciones: "",
+      id_empresa_transportista: empresa1.id,
+      observaciones: "Buen viaje",
+      tipoDeViaje:"Internacional",
+      nroViaje: 5,
+      provinciaOrigen:"Buenos Aires",
+      provinciaDestino:"CABA" 
     });
     const viaje2 = await Viaje.create({
       origen: "Deposito Sur",

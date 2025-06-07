@@ -8,7 +8,12 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'id_vehiculo',
         as: 'vehiculo'
       });
+      Viaje.belongsTo(models.EmpresaTransportista, {
+        foreignKey: 'id_empresa_transportista',
+        as: 'empresaTransportista'
+      }); 
     }
+
   }
 
   Viaje.init({
@@ -43,12 +48,28 @@ module.exports = (sequelize, DataTypes) => {
     estado: {
       type: DataTypes.STRING,
       allowNull: false
-    },/*
-    id_empresa_transportista: {
-      type: DataTypes.INT,
-      allowNull: false
-    },*/
+    },
     observaciones: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    tipoDeViaje: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    nroViaje: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    id_empresa_transportista: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    provinciaOrigen: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    provinciaDestino: {
       type: DataTypes.STRING,
       allowNull: true
     }
