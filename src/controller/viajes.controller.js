@@ -1,14 +1,21 @@
-const{Viaje,Vehiculo} = require('../models')
+const{Viaje,Vehiculo,EmpresaTransportista} = require('../models')
 const controller ={}
 
 controller.getAllViajes = async(_,res)=>{
     try {
     const viajes = await Viaje.findAll({
-      include: {
-        model: Vehiculo,
-        as: 'vehiculo',
-        attributes: ['patente']
-      }
+      include: [
+        {
+          model: Vehiculo,
+          as: 'vehiculo',
+          attributes: ['patente']
+        },
+        {
+          model: EmpresaTransportista,
+          as: 'empresaTransportista',
+          attributes: ['razon_social']
+        }
+      ]
     });
     res.status(200).json(viajes);
   } catch (error) {
