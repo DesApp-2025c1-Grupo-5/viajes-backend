@@ -1,9 +1,27 @@
-const{Chofer} = require('../models')
+const{Chofer,EmpresaTransportista,Vehiculo} = require('../models')
 const controller ={}
 
 controller.getAllChoferes = async(_,res)=>{
-    const choferes = await Chofer.findAll({})
-    res.status(200).json(choferes)
+    try {
+    const choferes = await Chofer.findAll({
+      include: [
+        {
+          model: EmpresaTransportista,
+          as: 'empresaTransportista',
+          attributes: ['razon_social']
+        },
+        {
+          model: Vehiculo,
+          as: 'vehiculo',
+          attributes: ['patente']
+        }
+      ]
+    });
+    res.status(200).json(choferes);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ mensaje: 'Error al obtener los choferes' });
+  }
 }
 
 controller.createChofer = async(req,res) =>{

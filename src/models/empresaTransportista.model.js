@@ -10,6 +10,10 @@ module.exports = (sequelize, DataTypes) => {
       EmpresaTransportista.hasMany(models.Chofer, {
         foreignKey: 'id_empresa_transportista',
       });
+      EmpresaTransportista.hasMany(models.Viaje, {
+        foreignKey: 'id_empresa_transportista'
+     });
+
     }
   }
 

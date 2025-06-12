@@ -5,8 +5,23 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Chofer.belongsTo(models.EmpresaTransportista, {
         foreignKey: "id_empresa_transportista",
+        as: "empresaTransportista",
+      });
+      Chofer.hasOne(models.Vehiculo, {
+        foreignKey: "id_chofer",
+        as: "vehiculo",
       });
     }
+
+  toJSON() { // Personalizamos el método toJSON para formatear las fechas
+    const values = Object.assign({}, this.get());
+
+    if (values.fecha_nacimiento) {
+      values.fecha_nacimiento = values.fecha_nacimiento.toISOString().split('T')[0];
+    }
+
+    return values;
+  }
   }
 
   Chofer.init(
