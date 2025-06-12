@@ -12,6 +12,16 @@ module.exports = (sequelize, DataTypes) => {
         as: "vehiculo",
       });
     }
+
+  toJSON() { // Personalizamos el método toJSON para formatear las fechas
+    const values = Object.assign({}, this.get());
+
+    if (values.fecha_nacimiento) {
+      values.fecha_nacimiento = values.fecha_nacimiento.toISOString().split('T')[0];
+    }
+
+    return values;
+  }
   }
 
   Chofer.init(

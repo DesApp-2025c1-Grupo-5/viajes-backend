@@ -14,6 +14,19 @@ module.exports = (sequelize, DataTypes) => {
       }); 
     }
 
+  toJSON() { // Personalizamos el método toJSON para formatear las fechas
+    const values = Object.assign({}, this.get());
+
+    if (values.fecha_salida) {
+      values.fecha_salida = values.fecha_salida.toISOString().split('T')[0];
+    }
+    if (values.fecha_llegada) {
+      values.fecha_llegada = values.fecha_llegada.toISOString().split('T')[0];
+    }
+
+    return values;
+  }
+
   }
 
   Viaje.init({
