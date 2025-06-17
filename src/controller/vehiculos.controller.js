@@ -2,7 +2,8 @@ const { Vehiculo } = require("../models");
 const controller = {};
 
 controller.getAllVehiculos = async (_, res) => {
-  const vehiculos = await Vehiculo.findAll({});
+  const vehiculos = await Vehiculo.findAll({ where: { activo: true } });
+
   res.status(200).json(vehiculos);
 };
 
@@ -33,6 +34,7 @@ controller.createVehiculo = async (req, res) => {
 };
 
 controller.updateVehiculo = async (req, res) => {
+  console.log("🛠 BODY recibido:", req.body);
   const {
     patente,
     modelo,
@@ -44,8 +46,14 @@ controller.updateVehiculo = async (req, res) => {
     tipo_de_vehiculo,
     observaciones,
   } = req.body;
+
   const id = req.params.id;
   const vehiculo = await Vehiculo.findByPk(id);
+
+  if (!vehiculo) {
+    return res.status(404).json({ error: "Vehículo no encontrado" });
+  }
+
   await vehiculo.update({
     patente,
     modelo,
@@ -57,6 +65,7 @@ controller.updateVehiculo = async (req, res) => {
     tipo_de_vehiculo,
     observaciones,
   });
+
   res.status(200).json(vehiculo);
 };
 
@@ -64,6 +73,17 @@ controller.getVehiculoById = async (req, res) => {
   const id = req.params.id;
   const vehiculo = await Vehiculo.findOne({ where: { id } });
   res.status(201).json(vehiculo);
+};
+
+controller.deleteVehiculo = async (req, res) => {
+  const id = req.params.id;
+  try {
+    await Vehiculo.update({ activo: false }, { where: { id } });
+    res.status(200).json({ mensaje: "Vehículo desactivado" });
+  } catch (error) {
+    console.error("Error al desactivar vehículo:", error);
+    res.status(500).json({ error: "Error al desactivar vehículo" });
+  }
 };
 
 module.exports = controller;

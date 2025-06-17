@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       Vehiculo.belongsTo(models.Chofer, {
         foreignKey: "id_chofer",
         as: "chofer",
-    });
+      });
     }
   }
 
@@ -58,6 +58,10 @@ module.exports = (sequelize, DataTypes) => {
       observaciones: {
         type: DataTypes.STRING,
         allowNull: true,
+      },
+      activo: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true,
       },
     },
     {
