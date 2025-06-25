@@ -13,15 +13,18 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
 
-  toJSON() { // Personalizamos el método toJSON para formatear las fechas
-    const values = Object.assign({}, this.get());
+    toJSON() {
+      // Personalizamos el método toJSON para formatear las fechas
+      const values = Object.assign({}, this.get());
 
-    if (values.fecha_nacimiento) {
-      values.fecha_nacimiento = values.fecha_nacimiento.toISOString().split('T')[0];
+      if (values.fecha_nacimiento) {
+        values.fecha_nacimiento = values.fecha_nacimiento
+          .toISOString()
+          .split("T")[0];
+      }
+
+      return values;
     }
-
-    return values;
-  }
   }
 
   Chofer.init(
@@ -61,6 +64,10 @@ module.exports = (sequelize, DataTypes) => {
       observaciones: {
         type: DataTypes.STRING,
         allowNull: true,
+      },
+      activo: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true,
       },
     },
     {

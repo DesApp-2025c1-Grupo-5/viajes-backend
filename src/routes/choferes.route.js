@@ -7,15 +7,13 @@ const routes = Router();
 const { choferes } = require("../controller");
 
 routes.get("/choferes", choferes.getAllChoferes);
-routes.post("/choferes", schemaValidator(choferSchema), choferes.createChofer);
-routes.put(
-  "/choferes/:id",
-  schemaValidator(choferSchema),
-  choferes.updateChofer
-);
+routes.post("/choferes", choferes.createChofer);
+routes.put("/choferes/:id", choferes.updateChofer);
 routes.get(
   "/choferes/:id",
   choferesMiddleware.validateIdChofer,
   choferes.getChoferById
 );
+routes.delete("/choferes/:id", choferes.deleteChofer);
+
 module.exports = routes;

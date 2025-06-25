@@ -16,6 +16,7 @@ controller.getAllChoferes = async (_, res) => {
           attributes: ["patente"],
         },
       ],
+      where: { activo: true },
     });
     res.status(200).json(choferes);
   } catch (error) {
@@ -25,29 +26,36 @@ controller.getAllChoferes = async (_, res) => {
 };
 
 controller.createChofer = async (req, res) => {
-  const {
-    nombre,
-    apellido,
-    DNI,
-    licencia,
-    telefono,
-    fecha_nacimiento,
-    id_empresa_transportista,
-    estado,
-    observaciones,
-  } = req.body;
-  const chofer = await Chofer.create({
-    nombre,
-    apellido,
-    DNI,
-    licencia,
-    telefono,
-    fecha_nacimiento,
-    id_empresa_transportista,
-    estado,
-    observaciones,
-  });
-  res.status(201).json(chofer);
+  try {
+    const {
+      nombre,
+      apellido,
+      dni,
+      licencia,
+      telefono,
+      fecha_nacimiento,
+      id_empresa_transportista,
+      estado,
+      observaciones,
+    } = req.body;
+
+    const chofer = await Chofer.create({
+      nombre,
+      apellido,
+      dni,
+      licencia,
+      telefono,
+      fecha_nacimiento,
+      id_empresa_transportista,
+      estado,
+      observaciones,
+    });
+
+    res.status(201).json(chofer);
+  } catch (error) {
+    console.error("❌ Error al crear chofer:", error); // esto es clave
+    res.status(500).json({ error: "Error al crear chofer" });
+  }
 };
 
 controller.updateChofer = async (req, res) => {
@@ -82,6 +90,17 @@ controller.getChoferById = async (req, res) => {
   const id = req.params.id;
   const chofer = await Chofer.findOne({ where: { id } });
   res.status(201).json(chofer);
+};
+
+controller.deleteChofer = async (req, res) => {
+  const id = req.params.id;
+  try {
+    await Chofer.update({ activo: false }, { where: { id } });
+    res.status(200).json({ mensaje: "Chofer desactivado" });
+  } catch (error) {
+    console.error("Error al desactivar chofer:", error);
+    res.status(500).json({ error: "Error al desactivar chofer" });
+  }
 };
 
 module.exports = controller;
