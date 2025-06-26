@@ -46,7 +46,7 @@ const crearValoresInicialesDB = async () => {
       capacidad: "32",
       volumen: "45",
       id_empresa_transportista: empresa1.id,
-      tipo_de_vehiculo: "Camión",
+      tipo_de_vehiculo: "Camion",
       nombre_transportista: empresa1.razon_social,
       observaciones:
         "Camión Volvo FH 540, mantenimiento oficial, cubiertas nuevas.",
@@ -59,7 +59,7 @@ const crearValoresInicialesDB = async () => {
       capacidad: "38",
       volumen: "50",
       id_empresa_transportista: empresa2.id,
-      tipo_de_vehiculo: "Camión",
+      tipo_de_vehiculo: "Camion",
       nombre_transportista: empresa2.razon_social,
       observaciones: "Actros 2545, equipado con GPS y aire acondicionado.",
     });
@@ -71,7 +71,7 @@ const crearValoresInicialesDB = async () => {
       capacidad: "28",
       volumen: "42",
       id_empresa_transportista: empresa3.id,
-      tipo_de_vehiculo: "Camión",
+      tipo_de_vehiculo: "Camion",
       nombre_transportista: empresa3.razon_social,
       observaciones:
         "Scania R450, historial de mantenimiento completo, único dueño.",
