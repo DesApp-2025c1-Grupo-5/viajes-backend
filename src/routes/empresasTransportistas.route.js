@@ -10,4 +10,8 @@ routes.get(
   "/empresasTransportistas/:id",
   empresasTransportistas.getEmpresaTransportistaById
 );
+routes.delete(
+  "/empresasTransportistas/:id",
+  empresasTransportistas.deleteTransportista
+);
 module.exports = routes;

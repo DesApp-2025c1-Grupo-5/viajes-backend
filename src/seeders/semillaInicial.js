@@ -48,7 +48,8 @@ const crearValoresInicialesDB = async () => {
       id_empresa_transportista: empresa1.id,
       tipo_de_vehiculo: "Camión",
       nombre_transportista: empresa1.razon_social,
-      observaciones: "Camión Volvo FH 540, mantenimiento oficial, cubiertas nuevas.",
+      observaciones:
+        "Camión Volvo FH 540, mantenimiento oficial, cubiertas nuevas.",
     });
     const vehiculo2 = await Vehiculo.create({
       patente: "AF 789 ZX",
@@ -72,7 +73,8 @@ const crearValoresInicialesDB = async () => {
       id_empresa_transportista: empresa3.id,
       tipo_de_vehiculo: "Camión",
       nombre_transportista: empresa3.razon_social,
-      observaciones: "Scania R450, historial de mantenimiento completo, único dueño.",
+      observaciones:
+        "Scania R450, historial de mantenimiento completo, único dueño.",
     });
     const chofer1 = await Chofer.create({
       nombre: "Juan",
@@ -113,33 +115,38 @@ const crearValoresInicialesDB = async () => {
       provincia: "Buenos Aires",
       direccion: "Av. Rivadavia 1234",
       coordenadas: "-34.6091, -58.3845",
-      tipo: "De Tercero",
-      horario: "Lunes a viernes 08:00-18:00",
-      restriccion_de_acceso: "Solo personal autorizado",
+      tipo: "tercero",
+      horarioDesde: "07:00:00",
+      horarioHasta: "17:00:00",
+      restriccion_de_acceso: "todo el Personal Autorizado",
       contacto: "+54 11 4000-1234",
       observaciones: "Cuenta con vigilancia 24hs.",
     });
+
     const deposito2 = await Deposito.create({
       nombre: "Depósito Sur",
       pais: "Argentina",
       provincia: "Santa Fe",
       direccion: "Ruta 9 km 280",
       coordenadas: "-32.9468, -60.6393",
-      tipo: "Propio",
-      horario: "Lunes a sábado 07:00-20:00",
-      restriccion_de_acceso: "Requiere credencial",
+      tipo: "propio",
+      horarioDesde: "07:00:00",
+      horarioHasta: "17:00:00",
+      restriccion_de_acceso: "solo Personal Autorizado",
       contacto: "+54 341 500-5678",
       observaciones: "Depósito con acceso para camiones grandes.",
     });
+
     const deposito3 = await Deposito.create({
       nombre: "Depósito Norte",
       pais: "Argentina",
       provincia: "Córdoba",
       direccion: "Av. Circunvalación 5000",
       coordenadas: "-31.4201, -64.1888",
-      tipo: "Propio",
-      horario: "Lunes a viernes 09:00-17:00",
-      restriccion_de_acceso: "Ingreso con turno previo",
+      tipo: "propio",
+      horarioDesde: "07:00:00",
+      horarioHasta: "17:00:00",
+      restriccion_de_acceso: "solo Personal Autorizado",
       contacto: "+54 351 600-7890",
       observaciones: "Espacio techado y cámaras de seguridad.",
     });
@@ -154,10 +161,10 @@ const crearValoresInicialesDB = async () => {
       estado: "Despachado",
       id_empresa_transportista: empresa1.id,
       observaciones: "Buen viaje",
-      tipoDeViaje:"Nacional",
+      tipoDeViaje: "Nacional",
       nroViaje: 5,
-      provinciaOrigen:"Buenos Aires",
-      provinciaDestino:"CABA" 
+      provinciaOrigen: "Buenos Aires",
+      provinciaDestino: "CABA",
     });
     const viaje2 = await Viaje.create({
       origen: "Deposito Sur",
@@ -173,7 +180,7 @@ const crearValoresInicialesDB = async () => {
       id_empresa_transportista: empresa2.id,
       observaciones: "Entrega urgente",
       provinciaOrigen: "Santa Fe",
-      provinciaDestino: "Buenos Aires"
+      provinciaDestino: "Buenos Aires",
     });
     const viaje3 = await Viaje.create({
       origen: "Deposito Norte",
@@ -189,7 +196,7 @@ const crearValoresInicialesDB = async () => {
       id_empresa_transportista: empresa3.id,
       observaciones: "Carga refrigerada",
       provinciaOrigen: "Córdoba",
-      provinciaDestino: "Santa Fe"
+      provinciaDestino: "Santa Fe",
     });
   } catch (error) {
     console.log(
