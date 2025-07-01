@@ -11,6 +11,18 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "id_empresa_transportista",
         as: "empresaTransportista",
       });
+      Viaje.belongsTo(models.Chofer, {
+        foreignKey: "id_chofer",
+        as: "chofer",
+      });
+      Viaje.belongsTo(models.Deposito, {
+        foreignKey: "origen",
+        as: "depositoOrigen",
+      });
+      Viaje.belongsTo(models.Deposito, {
+        foreignKey: "destino",
+        as: "depositoDestino",
+      });
     }
 
     toJSON() {
@@ -31,11 +43,11 @@ module.exports = (sequelize, DataTypes) => {
   Viaje.init(
     {
       origen: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       destino: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       fecha_salida: {

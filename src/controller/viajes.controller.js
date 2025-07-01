@@ -1,4 +1,4 @@
-const { Viaje, Vehiculo, EmpresaTransportista } = require("../models");
+const { Viaje, Deposito, Vehiculo, Chofer, EmpresaTransportista } = require("../models");
 const controller = {};
 
 controller.getAllViajes = async (_, res) => {
@@ -15,6 +15,21 @@ controller.getAllViajes = async (_, res) => {
           as: "empresaTransportista",
           attributes: ["razon_social"],
         },
+        {
+          model: Chofer,
+          as: "chofer",
+          attributes: ["nombre", "apellido"],
+        },
+        {
+          model: Deposito,
+          as: "depositoOrigen",
+          attributes: ["nombre", "provincia"],
+        },
+        {
+          model: Deposito,
+          as: "depositoDestino",
+          attributes: ["nombre", "provincia"],
+        }
       ],
       where: { activo: true },
     });
@@ -37,6 +52,7 @@ controller.createViaje = async (req, res) => {
     tipoDeViaje,
     observaciones,
   } = req.body;
+
   const viaje = await Viaje.create({
     origen,
     destino,

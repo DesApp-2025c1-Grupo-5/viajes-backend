@@ -1,7 +1,19 @@
 const { Model } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
-  class Deposito extends Model {}
+  class Deposito extends Model {
+    static associate(models) {
+      Deposito.hasMany(models.Viaje, {
+        foreignKey: "origen",
+        as: "viajesDesde",
+      });
+      Deposito.hasMany(models.Viaje, {
+        foreignKey: "destino",
+        as: "viajesHacia",
+      });
+    }
+  }
+
 
   Deposito.init(
     {

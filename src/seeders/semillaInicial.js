@@ -110,7 +110,7 @@ const crearValoresInicialesDB = async () => {
       observaciones: "Recientemente incorporada al equipo.",
     });
     const deposito1 = await Deposito.create({
-      nombre: "Depósito Central",
+      nombre: "Deposito Central",
       pais: "Argentina",
       provincia: "Buenos Aires",
       direccion: "Av. Rivadavia 1234",
@@ -124,7 +124,7 @@ const crearValoresInicialesDB = async () => {
     });
 
     const deposito2 = await Deposito.create({
-      nombre: "Depósito Sur",
+      nombre: "Deposito Sur",
       pais: "Argentina",
       provincia: "Santa Fe",
       direccion: "Ruta 9 km 280",
@@ -138,7 +138,7 @@ const crearValoresInicialesDB = async () => {
     });
 
     const deposito3 = await Deposito.create({
-      nombre: "Depósito Norte",
+      nombre: "Deposito Norte",
       pais: "Argentina",
       provincia: "Córdoba",
       direccion: "Av. Circunvalación 5000",
@@ -151,8 +151,8 @@ const crearValoresInicialesDB = async () => {
       observaciones: "Espacio techado y cámaras de seguridad.",
     });
     const viaje1 = await Viaje.create({
-      origen: "Deposito Central",
-      destino: "Deposito Norte",
+      origen: 2,
+      destino: 3,
       fecha_salida: "2023-04-12",
       fecha_llegada: "2023-04-25",
       id_vehiculo: vehiculo1.id,
@@ -167,15 +167,15 @@ const crearValoresInicialesDB = async () => {
       provinciaDestino: "CABA",
     });
     const viaje2 = await Viaje.create({
-      origen: "Deposito Sur",
-      destino: "Deposito Central",
+      origen: 1,
+      destino: 3,
       fecha_salida: "2023-04-08",
       fecha_llegada: "2023-04-09",
       id_vehiculo: vehiculo2.id,
       tipoDeViaje: "Nacional",
       nroViaje: 6,
       carga: "soy una carga",
-      id_chofer: chofer1.id,
+      id_chofer: chofer2.id,
       estado: "En Viaje",
       id_empresa_transportista: empresa2.id,
       observaciones: "Entrega urgente",
@@ -183,15 +183,15 @@ const crearValoresInicialesDB = async () => {
       provinciaDestino: "Buenos Aires",
     });
     const viaje3 = await Viaje.create({
-      origen: "Deposito Norte",
-      destino: "Deposito Sur",
+      origen: 1,
+      destino: 2,
       fecha_salida: "2023-04-15",
-      fecha_llegada: null,
+      fecha_llegada: "2023-04-22",
       id_vehiculo: vehiculo3.id,
       tipoDeViaje: "Internacional",
       nroViaje: 7,
       carga: "66",
-      id_chofer: chofer1.id,
+      id_chofer: chofer2.id,
       estado: "Completo",
       id_empresa_transportista: empresa3.id,
       observaciones: "Carga refrigerada",

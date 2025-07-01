@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "id_chofer",
         as: "vehiculo",
       });
+      Chofer.hasMany(models.Viaje, {
+        foreignKey: "id_chofer",
+      });
     }
 
     toJSON() {
