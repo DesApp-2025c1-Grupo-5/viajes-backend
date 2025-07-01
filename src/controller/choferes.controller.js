@@ -35,6 +35,7 @@ controller.createChofer = async (req, res) => {
       telefono,
       fecha_nacimiento,
       id_empresa_transportista,
+      id_vehiculo,
       estado,
       observaciones,
     } = req.body;
@@ -47,6 +48,7 @@ controller.createChofer = async (req, res) => {
       telefono,
       fecha_nacimiento,
       id_empresa_transportista,
+      id_vehiculo,
       estado,
       observaciones,
     });
@@ -62,11 +64,12 @@ controller.updateChofer = async (req, res) => {
   const {
     nombre,
     apellido,
-    DNI,
+    dni,
     licencia,
     telefono,
     fecha_nacimiento,
     id_empresa_transportista,
+    id_vehiculo,
     estado,
     observaciones,
   } = req.body;
@@ -75,11 +78,12 @@ controller.updateChofer = async (req, res) => {
   await chofer.update({
     nombre,
     apellido,
-    DNI,
+    dni,
     licencia,
     telefono,
     fecha_nacimiento,
     id_empresa_transportista,
+    id_vehiculo,
     estado,
     observaciones,
   });

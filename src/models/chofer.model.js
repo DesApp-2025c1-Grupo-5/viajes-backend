@@ -7,8 +7,8 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "id_empresa_transportista",
         as: "empresaTransportista",
       });
-      Chofer.hasOne(models.Vehiculo, {
-        foreignKey: "id_chofer",
+      Chofer.belongsTo(models.Vehiculo, {
+        foreignKey: "id_vehiculo",
         as: "vehiculo",
       });
       Chofer.hasMany(models.Viaje, {
@@ -59,6 +59,10 @@ module.exports = (sequelize, DataTypes) => {
       id_empresa_transportista: {
         type: DataTypes.INTEGER,
         allowNull: false,
+      },
+      id_vehiculo: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
       },
       estado: {
         type: DataTypes.STRING,

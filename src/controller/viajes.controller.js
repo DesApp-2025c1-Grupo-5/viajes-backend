@@ -49,22 +49,25 @@ controller.createViaje = async (req, res) => {
     id_empresa_transportista,
     id_chofer,
     id_vehiculo,
-    tipoDeViaje,
     observaciones,
   } = req.body;
 
-  const viaje = await Viaje.create({
-    origen,
-    destino,
-    fecha_salida,
-    fecha_llegada,
-    id_empresa_transportista,
-    id_chofer,
-    id_vehiculo,
-    tipoDeViaje,
-    observaciones,
-  });
-  res.status(201).json(viaje);
+  try {
+    const viaje = await Viaje.create({
+      origen,
+      destino,
+      fecha_salida,
+      fecha_llegada,
+      id_empresa_transportista,
+      id_chofer,
+      id_vehiculo,
+      observaciones,
+    });
+    res.status(201).json(viaje);
+  } catch (error) {
+    console.log("Error al crear un viaje: ", error);
+    res.status(400).json({error: error.message});
+  }
 };
 
 controller.updateViaje = async (req, res) => {
