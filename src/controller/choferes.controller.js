@@ -25,6 +25,13 @@ controller.getAllChoferes = async (_, res) => {
   }
 };
 
+controller.getCountChoferesActivos = async(_,res)=>{
+  const count = await Chofer.count({
+    where:{activo:true},
+  });
+  res.status(200).json({count})
+}
+
 controller.createChofer = async (req, res) => {
   try {
     const {

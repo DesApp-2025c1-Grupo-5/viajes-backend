@@ -9,6 +9,13 @@ controller.getAllEmpresas = async (_, res) => {
   res.status(200).json(empresas);
 };
 
+controller.getCountEmpresasActivas = async (_, res) => {
+  const count = await EmpresaTransportista.count({
+    where: { activo: true },
+  });
+  res.status(200).json({ count });
+};
+
 controller.createEmpresa = async (req, res) => {
   const {
     razon_social,
@@ -77,4 +84,5 @@ controller.deleteTransportista = async (req, res) => {
     res.status(500).json({ error: "Error al desactivar depósito" });
   }
 };
+
 module.exports = controller;

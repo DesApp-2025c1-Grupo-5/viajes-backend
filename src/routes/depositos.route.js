@@ -4,6 +4,7 @@ const routes = Router();
 const { depositos } = require("../controller");
 
 routes.get("/depositos", depositos.getAllDepositos);
+routes.get("/depositos/count", depositos.getCountDepositosActivos);
 routes.post("/depositos", depositos.createDeposito);
 routes.put("/depositos/:id", depositos.updateDeposito);
 routes.get("/depositos/:id", depositos.getDepositoById);

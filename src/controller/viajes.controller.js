@@ -1,4 +1,10 @@
-const { Viaje, Deposito, Vehiculo, Chofer, EmpresaTransportista } = require("../models");
+const {
+  Viaje,
+  Deposito,
+  Vehiculo,
+  Chofer,
+  EmpresaTransportista,
+} = require("../models");
 const controller = {};
 
 controller.getAllViajes = async (_, res) => {
@@ -29,7 +35,7 @@ controller.getAllViajes = async (_, res) => {
           model: Deposito,
           as: "depositoDestino",
           attributes: ["nombre", "provincia"],
-        }
+        },
       ],
       where: { activo: true },
     });
@@ -38,6 +44,13 @@ controller.getAllViajes = async (_, res) => {
     console.error(error);
     res.status(500).json({ mensaje: "Error al obtener los viajes" });
   }
+};
+
+controller.getCountViajesActivos = async (_, res) => {
+  const count = await Viaje.count({
+    where: { activo: true },
+  });
+  res.status(200).json({ count });
 };
 
 controller.createViaje = async (req, res) => {
@@ -66,7 +79,7 @@ controller.createViaje = async (req, res) => {
     res.status(201).json(viaje);
   } catch (error) {
     console.log("Error al crear un viaje: ", error);
-    res.status(400).json({error: error.message});
+    res.status(400).json({ error: error.message });
   }
 };
 

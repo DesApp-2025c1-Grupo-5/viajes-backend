@@ -6,6 +6,13 @@ controller.getAllDepositos = async (_, res) => {
   res.status(200).json(depositos);
 };
 
+controller.getCountDepositosActivos = async (_, res) => {
+  const count = await Deposito.count({
+    where: { activo: true },
+  });
+  res.status(200).json({ count });
+};
+
 controller.createDeposito = async (req, res) => {
   const {
     nombre,

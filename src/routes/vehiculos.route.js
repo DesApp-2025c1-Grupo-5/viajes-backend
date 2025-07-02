@@ -4,6 +4,7 @@ const routes = Router();
 const { vehiculos } = require("../controller");
 
 routes.get("/vehiculos", vehiculos.getAllVehiculos);
+routes.get("/vehiculos/count",vehiculos.getCountVehiculosActivos)
 routes.post("/vehiculos", vehiculos.createVehiculo);
 routes.put("/vehiculos/:id", vehiculos.updateVehiculo);
 routes.get("/vehiculos/:id", vehiculos.getVehiculoById);

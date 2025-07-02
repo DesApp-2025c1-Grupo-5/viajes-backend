@@ -7,6 +7,7 @@ const routes = Router();
 const { choferes } = require("../controller");
 
 routes.get("/choferes", choferes.getAllChoferes);
+routes.get("/choferes/count", choferes.getCountChoferesActivos);
 routes.post("/choferes", choferes.createChofer);
 routes.put("/choferes/:id", choferes.updateChofer);
 routes.get(
