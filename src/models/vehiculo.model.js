@@ -6,10 +6,6 @@ module.exports = (sequelize, DataTypes) => {
       Vehiculo.belongsTo(models.EmpresaTransportista, {
         foreignKey: "id_empresa_transportista",
       });
-      Vehiculo.belongsTo(models.Chofer, {
-        foreignKey: "id_chofer",
-        as: "chofer",
-      });
     }
   }
 
@@ -46,14 +42,6 @@ module.exports = (sequelize, DataTypes) => {
       tipo_de_vehiculo: {
         type: DataTypes.STRING,
         allowNull: false,
-      },
-      nombre_transportista: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
-      id_chofer: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
       },
       observaciones: {
         type: DataTypes.STRING,

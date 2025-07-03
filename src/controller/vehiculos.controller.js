@@ -7,6 +7,13 @@ controller.getAllVehiculos = async (_, res) => {
   res.status(200).json(vehiculos);
 };
 
+controller.getCountVehiculosActivos = async (_, res) => {
+  const count = await Vehiculo.count({
+    where: { activo: true },
+  });
+  res.status(200).json({ count });
+};
+
 controller.createVehiculo = async (req, res) => {
   const {
     patente,

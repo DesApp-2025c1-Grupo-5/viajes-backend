@@ -3,8 +3,17 @@ const { EmpresaTransportista } = require("../models");
 const controller = {};
 
 controller.getAllEmpresas = async (_, res) => {
-  const empresas = await EmpresaTransportista.findAll({});
+  const empresas = await EmpresaTransportista.findAll({
+    where: { activo: true },
+  });
   res.status(200).json(empresas);
+};
+
+controller.getCountEmpresasActivas = async (_, res) => {
+  const count = await EmpresaTransportista.count({
+    where: { activo: true },
+  });
+  res.status(200).json({ count });
 };
 
 controller.createEmpresa = async (req, res) => {
@@ -59,8 +68,21 @@ controller.updateEmpresa = async (req, res) => {
 
 controller.getEmpresaTransportistaById = async (req, res) => {
   const id = req.params.id;
-  const empresaTransportista = await EmpresaTransportista.findOne({where: { id } });
+  const empresaTransportista = await EmpresaTransportista.findOne({
+    where: { id },
+  });
   res.status(201).json(empresaTransportista);
+};
+
+controller.deleteTransportista = async (req, res) => {
+  const id = req.params.id;
+  try {
+    await EmpresaTransportista.update({ activo: false }, { where: { id } });
+    res.status(200).json({ mensaje: "Empresa transportista desactivada" });
+  } catch (error) {
+    console.error("Error al desactivar la empresa transportista:", error);
+    res.status(500).json({ error: "Error al desactivar depósito" });
+  }
 };
 
 module.exports = controller;

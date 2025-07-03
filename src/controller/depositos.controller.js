@@ -2,8 +2,15 @@ const { Deposito } = require("../models");
 const controller = {};
 
 controller.getAllDepositos = async (_, res) => {
-  const depositos = await Deposito.findAll({});
+  const depositos = await Deposito.findAll({ where: { activo: true } });
   res.status(200).json(depositos);
+};
+
+controller.getCountDepositosActivos = async (_, res) => {
+  const count = await Deposito.count({
+    where: { activo: true },
+  });
+  res.status(200).json({ count });
 };
 
 controller.createDeposito = async (req, res) => {
@@ -14,8 +21,10 @@ controller.createDeposito = async (req, res) => {
     direccion,
     coordenadas,
     tipo,
-    horario,
+    horarioDesde,
+    horarioHasta,
     restriccion_de_acceso,
+    contacto,
     observaciones,
   } = req.body;
   const deposito = await Deposito.create({
@@ -25,8 +34,10 @@ controller.createDeposito = async (req, res) => {
     direccion,
     coordenadas,
     tipo,
-    horario,
+    horarioDesde,
+    horarioHasta,
     restriccion_de_acceso,
+    contacto,
     observaciones,
   });
   res.status(201).json(deposito);
@@ -40,7 +51,8 @@ controller.updateDeposito = async (req, res) => {
     direccion,
     coordenadas,
     tipo,
-    horario,
+    horarioDesde,
+    horarioHasta,
     restriccion_de_acceso,
     observaciones,
   } = req.body;
@@ -53,7 +65,8 @@ controller.updateDeposito = async (req, res) => {
     direccion,
     coordenadas,
     tipo,
-    horario,
+    horarioDesde,
+    horarioHasta,
     restriccion_de_acceso,
     observaciones,
   });
@@ -64,6 +77,17 @@ controller.getDepositoById = async (req, res) => {
   const id = req.params.id;
   const deposito = await Deposito.findOne({ where: { id } });
   res.status(201).json(deposito);
+};
+
+controller.deleteDeposito = async (req, res) => {
+  const id = req.params.id;
+  try {
+    await Deposito.update({ activo: false }, { where: { id } });
+    res.status(200).json({ mensaje: "Deposito desactivado" });
+  } catch (error) {
+    console.error("Error al desactivar depósito:", error);
+    res.status(500).json({ error: "Error al desactivar depósito" });
+  }
 };
 
 module.exports = controller;

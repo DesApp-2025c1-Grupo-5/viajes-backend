@@ -16,6 +16,7 @@ controller.getAllChoferes = async (_, res) => {
           attributes: ["patente"],
         },
       ],
+      where: { activo: true },
     });
     res.status(200).json(choferes);
   } catch (error) {
@@ -24,41 +25,58 @@ controller.getAllChoferes = async (_, res) => {
   }
 };
 
-controller.createChofer = async (req, res) => {
-  const {
-    nombre,
-    apellido,
-    DNI,
-    licencia,
-    telefono,
-    fecha_nacimiento,
-    id_empresa_transportista,
-    estado,
-    observaciones,
-  } = req.body;
-  const chofer = await Chofer.create({
-    nombre,
-    apellido,
-    DNI,
-    licencia,
-    telefono,
-    fecha_nacimiento,
-    id_empresa_transportista,
-    estado,
-    observaciones,
+controller.getCountChoferesActivos = async(_,res)=>{
+  const count = await Chofer.count({
+    where:{activo:true},
   });
-  res.status(201).json(chofer);
+  res.status(200).json({count})
+}
+
+controller.createChofer = async (req, res) => {
+  try {
+    const {
+      nombre,
+      apellido,
+      dni,
+      licencia,
+      telefono,
+      fecha_nacimiento,
+      id_empresa_transportista,
+      id_vehiculo,
+      estado,
+      observaciones,
+    } = req.body;
+
+    const chofer = await Chofer.create({
+      nombre,
+      apellido,
+      dni,
+      licencia,
+      telefono,
+      fecha_nacimiento,
+      id_empresa_transportista,
+      id_vehiculo,
+      estado,
+      observaciones,
+    });
+
+    res.status(201).json(chofer);
+  } catch (error) {
+    console.error("❌ Error al crear chofer:", error); // esto es clave
+    res.status(500).json({ error: "Error al crear chofer" });
+  }
 };
 
 controller.updateChofer = async (req, res) => {
   const {
     nombre,
     apellido,
-    DNI,
+    dni,
     licencia,
     telefono,
     fecha_nacimiento,
     id_empresa_transportista,
+    id_vehiculo,
     estado,
     observaciones,
   } = req.body;
@@ -67,11 +85,12 @@ controller.updateChofer = async (req, res) => {
   await chofer.update({
     nombre,
     apellido,
-    DNI,
+    dni,
     licencia,
     telefono,
     fecha_nacimiento,
     id_empresa_transportista,
+    id_vehiculo,
     estado,
     observaciones,
   });
@@ -82,6 +101,17 @@ controller.getChoferById = async (req, res) => {
   const id = req.params.id;
   const chofer = await Chofer.findOne({ where: { id } });
   res.status(201).json(chofer);
+};
+
+controller.deleteChofer = async (req, res) => {
+  const id = req.params.id;
+  try {
+    await Chofer.update({ activo: false }, { where: { id } });
+    res.status(200).json({ mensaje: "Chofer desactivado" });
+  } catch (error) {
+    console.error("Error al desactivar chofer:", error);
+    res.status(500).json({ error: "Error al desactivar chofer" });
+  }
 };
 
 module.exports = controller;

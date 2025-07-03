@@ -7,21 +7,27 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "id_empresa_transportista",
         as: "empresaTransportista",
       });
-      Chofer.hasOne(models.Vehiculo, {
-        foreignKey: "id_chofer",
+      Chofer.belongsTo(models.Vehiculo, {
+        foreignKey: "id_vehiculo",
         as: "vehiculo",
+      });
+      Chofer.hasMany(models.Viaje, {
+        foreignKey: "id_chofer",
       });
     }
 
-  toJSON() { // Personalizamos el método toJSON para formatear las fechas
-    const values = Object.assign({}, this.get());
+    toJSON() {
+      // Personalizamos el método toJSON para formatear las fechas
+      const values = Object.assign({}, this.get());
 
-    if (values.fecha_nacimiento) {
-      values.fecha_nacimiento = values.fecha_nacimiento.toISOString().split('T')[0];
+      if (values.fecha_nacimiento) {
+        values.fecha_nacimiento = values.fecha_nacimiento
+          .toISOString()
+          .split("T")[0];
+      }
+
+      return values;
     }
-
-    return values;
-  }
   }
 
   Chofer.init(
@@ -54,6 +60,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      id_vehiculo: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+      },
       estado: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -61,6 +71,10 @@ module.exports = (sequelize, DataTypes) => {
       observaciones: {
         type: DataTypes.STRING,
         allowNull: true,
+      },
+      activo: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true,
       },
     },
     {

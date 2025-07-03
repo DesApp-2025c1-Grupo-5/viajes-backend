@@ -13,7 +13,7 @@ app.use(routes)
 
 async function startDB(){
   try{
-    await db.sequelize.sync({ force: true });
+    await db.sequelize.sync({force:true});
     await crearValoresInicialesDB()
     console.log("Base de datos iniciada correctamente ✅")
   }catch(error){
