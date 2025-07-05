@@ -1,8 +1,17 @@
-const { Vehiculo } = require("../models");
+const { Vehiculo, EmpresaTransportista } = require("../models");
 const controller = {};
 
 controller.getAllVehiculos = async (_, res) => {
-  const vehiculos = await Vehiculo.findAll({ where: { activo: true } });
+  const vehiculos = await Vehiculo.findAll({ 
+    include:[
+      {
+        model: EmpresaTransportista,
+        as: "empresa",
+        attributes: ["razon_social"],
+      }
+    ],
+    where: { activo: true } 
+  });
 
   res.status(200).json(vehiculos);
 };
