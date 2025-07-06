@@ -29,11 +29,18 @@ module.exports = (sequelize, DataTypes) => {
       // Personalizamos el método toJSON para formatear las fechas
       const values = Object.assign({}, this.get());
 
+      const formatDateToLocal = (date) => {
+        const offset = date.getTimezoneOffset() * 60000; // minutos a milisegundos
+        const localISOTime = new Date(date - offset).toISOString().slice(0, 16); // YYYY-MM-DDTHH:mm
+        return localISOTime;
+      };
+
       if (values.fecha_salida) {
-        values.fecha_salida = values.fecha_salida.toISOString().split("T")[0];
+        values.fecha_salida = formatDateToLocal(new Date(values.fecha_salida));
       }
+
       if (values.fecha_llegada) {
-        values.fecha_llegada = values.fecha_llegada.toISOString().split("T")[0];
+        values.fecha_llegada = formatDateToLocal(new Date(values.fecha_llegada));
       }
 
       return values;
