@@ -14,7 +14,7 @@ controller.getAllViajes = async (_, res) => {
         {
           model: Vehiculo,
           as: "vehiculo",
-          attributes: ["patente"],
+          attributes: ["marca", "modelo", "patente"],
         },
         {
           model: EmpresaTransportista,
