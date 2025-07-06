@@ -63,6 +63,7 @@ controller.createViaje = async (req, res) => {
     id_chofer,
     id_vehiculo,
     observaciones,
+    tipoDeViaje,
   } = req.body;
 
   try {
@@ -74,6 +75,7 @@ controller.createViaje = async (req, res) => {
       id_empresa_transportista,
       id_chofer,
       id_vehiculo,
+      tipoDeViaje,
       observaciones,
     });
     res.status(201).json(viaje);
