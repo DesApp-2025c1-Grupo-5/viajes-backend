@@ -63,7 +63,7 @@ controller.createChofer = async (req, res) => {
     res.status(201).json(chofer);
   } catch (error) {
     console.error("❌ Error al crear chofer:", error); // esto es clave
-    res.status(500).json({ error: "Error al crear chofer" });
+    res.status(400).json({ error: "Error al crear chofer" });
   }
 };
 

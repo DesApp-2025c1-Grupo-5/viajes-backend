@@ -14,33 +14,38 @@ controller.getCountDepositosActivos = async (_, res) => {
 };
 
 controller.createDeposito = async (req, res) => {
-  const {
-    nombre,
-    pais,
-    provincia,
-    direccion,
-    coordenadas,
-    tipo,
-    horarioDesde,
-    horarioHasta,
-    restriccion_de_acceso,
-    contacto,
-    observaciones,
-  } = req.body;
-  const deposito = await Deposito.create({
-    nombre,
-    pais,
-    provincia,
-    direccion,
-    coordenadas,
-    tipo,
-    horarioDesde,
-    horarioHasta,
-    restriccion_de_acceso,
-    contacto,
-    observaciones,
-  });
-  res.status(201).json(deposito);
+  try {
+    const {
+      nombre,
+      pais,
+      provincia,
+      direccion,
+      coordenadas,
+      tipo,
+      horarioDesde,
+      horarioHasta,
+      restriccion_de_acceso,
+      contacto,
+      observaciones,
+    } = req.body;
+    const deposito = await Deposito.create({
+      nombre,
+      pais,
+      provincia,
+      direccion,
+      coordenadas,
+      tipo,
+      horarioDesde,
+      horarioHasta,
+      restriccion_de_acceso,
+      contacto,
+      observaciones,
+    });
+    res.status(201).json(deposito);
+  } catch (error) {
+    console.log("❌ Error al crear depósito:", error);
+    res.status(400).json({ error });
+  }
 };
 
 controller.updateDeposito = async (req, res) => {
