@@ -405,7 +405,7 @@ const crearValoresInicialesDB = async () => {
       tipo: "tercero",
       horarioDesde: "07:00:00",
       horarioHasta: "17:00:00",
-      restriccion_de_acceso: "todo el Personal Autorizado",
+      restriccion_de_acceso: "Todo el Personal",
       contacto: "+54 11 4000-1234",
       observaciones: "Cuenta con vigilancia 24hs.",
     });
@@ -419,7 +419,7 @@ const crearValoresInicialesDB = async () => {
       tipo: "propio",
       horarioDesde: "07:00:00",
       horarioHasta: "17:00:00",
-      restriccion_de_acceso: "solo Personal Autorizado",
+      restriccion_de_acceso: "Solo Personal Autorizado",
       contacto: "+54 341 500-5678",
       observaciones: "Depósito con acceso para camiones grandes.",
     });
@@ -433,7 +433,7 @@ const crearValoresInicialesDB = async () => {
       tipo: "propio",
       horarioDesde: "07:00:00",
       horarioHasta: "17:00:00",
-      restriccion_de_acceso: "solo Personal Autorizado",
+      restriccion_de_acceso: "Solo Personal Autorizado",
       contacto: "+54 351 600-7890",
       observaciones: "Espacio techado y cámaras de seguridad.",
     });
@@ -446,7 +446,7 @@ const crearValoresInicialesDB = async () => {
       tipo: "tercero",
       horarioDesde: "06:00:00",
       horarioHasta: "16:00:00",
-      restriccion_de_acceso: "Personal con autorización previa",
+      restriccion_de_acceso: "Todo el Personal",
       contacto: "+54 261 430-1122",
       observaciones: "Depósito especializado en cargas delicadas.",
     });
@@ -459,7 +459,7 @@ const crearValoresInicialesDB = async () => {
       tipo: "propio",
       horarioDesde: "08:00:00",
       horarioHasta: "18:00:00",
-      restriccion_de_acceso: "acceso limitado según turno",
+      restriccion_de_acceso: "Todo el Personal",
       contacto: "+54 343 410-3344",
       observaciones: "Instalaciones nuevas con rampa hidráulica.",
     });
@@ -472,7 +472,7 @@ const crearValoresInicialesDB = async () => {
       tipo: "tercero",
       horarioDesde: "09:00:00",
       horarioHasta: "19:00:00",
-      restriccion_de_acceso: "requiere credencial RFID",
+      restriccion_de_acceso: "Todo el Personal",
       contacto: "+54 299 420-5566",
       observaciones: "Zona de carga refrigerada disponible.",
     });
@@ -485,7 +485,7 @@ const crearValoresInicialesDB = async () => {
       tipo: "propio",
       horarioDesde: "07:30:00",
       horarioHasta: "18:00:00",
-      restriccion_de_acceso: "sólo personal autorizado",
+      restriccion_de_acceso: "Solo Personal Autorizado",
       contacto: "+56 2 2890 1234",
       observaciones: "Centro logístico con patio de maniobras amplio.",
     });
@@ -498,7 +498,7 @@ const crearValoresInicialesDB = async () => {
       tipo: "tercero",
       horarioDesde: "08:00:00",
       horarioHasta: "17:30:00",
-      restriccion_de_acceso: "requiere autorización escrita",
+      restriccion_de_acceso: "Solo Personal Autorizado",
       contacto: "+56 32 250 5678",
       observaciones: "Depósito portuario con acceso directo al muelle.",
     });
@@ -511,7 +511,7 @@ const crearValoresInicialesDB = async () => {
       tipo: "propio",
       horarioDesde: "07:00:00",
       horarioHasta: "19:00:00",
-      restriccion_de_acceso: "identificación obligatoria",
+      restriccion_de_acceso: "Solo Personal Autorizado",
       contacto: "+598 2900 1234",
       observaciones: "Depósito moderno con seguridad 24/7.",
     });
@@ -524,7 +524,7 @@ const crearValoresInicialesDB = async () => {
       tipo: "tercero",
       horarioDesde: "08:00:00",
       horarioHasta: "16:00:00",
-      restriccion_de_acceso: "sólo personal registrado",
+      restriccion_de_acceso: "Todo el Personal",
       contacto: "+598 2295 4567",
       observaciones: "Especializado en almacenamiento de productos agrícolas.",
     });
