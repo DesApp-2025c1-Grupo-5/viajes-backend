@@ -11,7 +11,7 @@ const crearValoresInicialesDB = async () => {
 
     const empresa1 = await EmpresaTransportista.create({
       razon_social: "Transportes Rápidos S.A",
-      cuit_rut: "20123456789",
+      cuit_rut: "20-12345678-9",
       email: "correoprueba@gmail.com",
       telefono: "+51 987654321",
       pais: "Argentina",
@@ -533,8 +533,8 @@ const crearValoresInicialesDB = async () => {
     const viaje1 = await Viaje.create({
       origen: deposito1.id,
       destino: deposito2.id,
-      fecha_salida: "2023-04-12",
-      fecha_llegada: "2023-04-25",
+      fecha_salida: "2025-06-12T08:00",
+      fecha_llegada: "2025-06-25T14:00",
       id_chofer: chofer3.id,
       id_empresa_transportista: chofer3.id_empresa_transportista,
       id_vehiculo: chofer3.id_vehiculo,
@@ -545,8 +545,8 @@ const crearValoresInicialesDB = async () => {
     const viaje2 = await Viaje.create({
       origen: deposito4.id,
       destino: deposito2.id,
-      fecha_salida: "2023-04-08",
-      fecha_llegada: "2023-04-09",
+      fecha_salida: "2024-09-08T10:00",
+      fecha_llegada: "2024-10-09T14:00",
       id_chofer: chofer2.id,
       id_empresa_transportista: chofer2.id_empresa_transportista,
       id_vehiculo: chofer2.id_vehiculo,
@@ -557,8 +557,8 @@ const crearValoresInicialesDB = async () => {
     const viaje3 = await Viaje.create({
       origen: deposito4.id,
       destino: deposito7.id,
-      fecha_salida: "2023-04-15",
-      fecha_llegada: "2023-04-22",
+      fecha_salida: "2023-03-15T16:00",
+      fecha_llegada: "2023-03-22T06:30",
       id_chofer: chofer1.id,
       id_empresa_transportista: chofer1.id_empresa_transportista,
       id_vehiculo: chofer1.id_vehiculo,
@@ -569,8 +569,8 @@ const crearValoresInicialesDB = async () => {
     const viaje4 = await Viaje.create({
       origen: deposito4.id,
       destino: deposito5.id,
-      fecha_salida: "2023-04-08",
-      fecha_llegada: "2023-04-09",
+      fecha_salida: "2024-11-18T19:30",
+      fecha_llegada: "2024-12-01T00:30",
       id_chofer: chofer6.id,
       id_empresa_transportista: chofer6.id_empresa_transportista,
       id_vehiculo: chofer6.id_vehiculo,
@@ -581,8 +581,8 @@ const crearValoresInicialesDB = async () => {
     const viaje5 = await Viaje.create({
       origen: deposito5.id,
       destino: deposito8.id,
-      fecha_salida: "2023-04-08",
-      fecha_llegada: "2023-04-09",
+      fecha_salida: "2025-06-11T10:00",
+      fecha_llegada: "2025-06-12T16:00",
       id_chofer: chofer9.id,
       id_empresa_transportista: chofer9.id_empresa_transportista,
       id_vehiculo: chofer9.id_vehiculo,
@@ -593,8 +593,8 @@ const crearValoresInicialesDB = async () => {
     const viaje6 = await Viaje.create({
       origen: deposito1.id,
       destino: deposito3.id,
-      fecha_salida: "2023-04-08",
-      fecha_llegada: "2023-04-09",
+      fecha_salida: "2023-04-08T11:00",
+      fecha_llegada: "2023-04-11T14:30",
       id_chofer: chofer4.id,
       id_empresa_transportista: chofer4.id_empresa_transportista,
       id_vehiculo: chofer4.id_vehiculo,
@@ -605,8 +605,8 @@ const crearValoresInicialesDB = async () => {
     const viaje7 = await Viaje.create({
       origen: deposito9.id,
       destino: deposito6.id,
-      fecha_salida: "2023-04-08",
-      fecha_llegada: "2023-04-09",
+      fecha_salida: "2025-05-16T18:00",
+      fecha_llegada: "2025-05-20T14:00",
       id_chofer: chofer5.id,
       id_empresa_transportista: chofer5.id_empresa_transportista,
       id_vehiculo: chofer5.id_vehiculo,
@@ -617,8 +617,8 @@ const crearValoresInicialesDB = async () => {
     const viaje8 = await Viaje.create({
       origen: deposito2.id,
       destino: deposito5.id,
-      fecha_salida: "2023-04-08",
-      fecha_llegada: "2023-04-09",
+      fecha_salida: "2024-10-04T20:00",
+      fecha_llegada: "2024-10-10T12:15",
       id_chofer: chofer1.id,
       id_empresa_transportista: chofer1.id_empresa_transportista,
       id_vehiculo: chofer1.id_vehiculo,
