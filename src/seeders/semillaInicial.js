@@ -586,7 +586,7 @@ const crearValoresInicialesDB = async () => {
       id_chofer: chofer9.id,
       id_empresa_transportista: chofer9.id_empresa_transportista,
       id_vehiculo: chofer9.id_vehiculo,
-      tipoDeViaje: "Interacional",
+      tipoDeViaje: "Internacional",
       carga: "soy una carga",
       observaciones: "Entrega urgente",
     });
@@ -610,7 +610,7 @@ const crearValoresInicialesDB = async () => {
       id_chofer: chofer5.id,
       id_empresa_transportista: chofer5.id_empresa_transportista,
       id_vehiculo: chofer5.id_vehiculo,
-      tipoDeViaje: "Interacional",
+      tipoDeViaje: "Internacional",
       carga: "soy una carga",
       observaciones: "Entrega urgente",
     });
