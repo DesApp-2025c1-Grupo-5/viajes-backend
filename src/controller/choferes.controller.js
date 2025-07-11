@@ -13,7 +13,7 @@ controller.getAllChoferes = async (_, res) => {
         {
           model: Vehiculo,
           as: "vehiculo",
-          attributes: ["patente"],
+          attributes: ["marca","modelo","patente"],
         },
       ],
       where: { activo: true },
