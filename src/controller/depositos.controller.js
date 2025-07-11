@@ -59,6 +59,7 @@ controller.updateDeposito = async (req, res) => {
     horarioDesde,
     horarioHasta,
     restriccion_de_acceso,
+    contacto,
     observaciones,
   } = req.body;
   const id = req.params.id;
@@ -73,6 +74,7 @@ controller.updateDeposito = async (req, res) => {
     horarioDesde,
     horarioHasta,
     restriccion_de_acceso,
+    contacto,
     observaciones,
   });
   res.status(200).json(deposito);
